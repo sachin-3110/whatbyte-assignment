@@ -1,15 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fontDisplay = Outfit({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fontBody = Plus_Jakarta_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -29,9 +31,9 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fontDisplay.variable} ${fontBody.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#f8fafd] text-gray-950">
+      <body className="min-h-full flex flex-col bg-[#f8fafd] text-gray-950 font-body">
         <CartProvider>
           {children}
         </CartProvider>
